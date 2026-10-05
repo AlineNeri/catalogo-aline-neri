@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Aline Neri ♡</title>
+  <link rel="icon" href="img/coracao-aba.png" type="image/png" sizes="64x64">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <button class="menu-btn" id="menu-btn" type="button" aria-label="Abrir menu" aria-expanded="false">Aline Neri</button>
+    <nav class="menu-principal" id="menu-principal" aria-label="Menu principal" aria-hidden="true" inert>
+      <button class="menu-fechar" id="menu-fechar" type="button" aria-label="Fechar menu">&times;</button>
+      <a href="#informacoes"><span class="menu-icone" aria-hidden="true">$</span><span>Formas de pagamento</span></a>
+      <a href="https://wa.me/5511965713890?text=Ol%C3%A1%2C%20gostaria%20de%20acompanhar%20meu%20pedido." target="_blank" rel="noopener"><span class="menu-icone" aria-hidden="true">♡</span><span>Meus pedidos</span></a>
+      <a href="#quem-somos"><span class="menu-icone" aria-hidden="true">✦</span><span>Quem somos</span></a>
+      <a href="#informacoes"><span class="menu-icone" aria-hidden="true">i</span><span>Informações</span></a>
+    </nav>
+    <div class="marca">
+      <div class="informacoes-cabecalho" aria-label="Informações da loja">
+        <div class="atalhos-cabecalho">
+          <button class="atalho-cabecalho" type="button" data-descricao="sobre" aria-expanded="false" aria-controls="descricao-sobre"><span class="menu-icone" aria-hidden="true">✦</span><span class="atalho-label">Quem somos</span><span class="tooltip-atalho" id="descricao-sobre" role="tooltip" hidden>A Aline Neri nasceu para reunir moda feminina versátil, delicada e fácil de usar no dia a dia.</span></button>
+          <button class="atalho-cabecalho" type="button" data-descricao="pagamentos" aria-expanded="false" aria-controls="descricao-pagamentos"><span class="menu-icone" aria-hidden="true">$</span><span class="atalho-label">Pagamento</span><span class="tooltip-atalho" id="descricao-pagamentos" role="tooltip" hidden>Aceitamos Pix, cartão de crédito e cartão de débito.</span></button>
+          <button class="atalho-cabecalho" type="button" data-descricao="pedidos" aria-expanded="false" aria-controls="descricao-pedidos"><span class="menu-icone" aria-hidden="true">♡</span><span class="atalho-label">Meus pedidos</span><span class="tooltip-atalho" id="descricao-pedidos" role="tooltip" hidden>Após finalizar pelo WhatsApp, você recebe o acompanhamento diretamente com a nossa equipe.</span></button>
+          <button class="atalho-cabecalho" type="button" data-descricao="trocas" aria-expanded="false" aria-controls="descricao-trocas"><span class="menu-icone" aria-hidden="true">i</span><span class="atalho-label">Informações</span><span class="tooltip-atalho" id="descricao-trocas" role="tooltip" hidden>Para trocas, fale conosco em até 7 dias após o recebimento.</span></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="carrinho" id="carrinho">
+      <button class="carrinho-toggle" id="carrinho-toggle" type="button" aria-label="Carrinho, 0 itens" aria-expanded="false" aria-controls="carrinho-detalhes">
+        <svg class="carrinho-img" xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="black" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M7 4h-2l-1 2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.11.89 2 2 2h12v-2h-11.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1h-14.31l-.94-2zm0 18c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2c1.1 0 2-.9 2-2s-.9-2-2-2zm12 0c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/>
+        </svg>
+        <span class="carrinho-contador" id="carrinho-contador" aria-hidden="true">0</span>
+      </button>
+
+      <div class="carrinho-detalhes" id="carrinho-detalhes">
+        <h3>Carrinho</h3>
+        <ul id="lista-carrinho"></ul>
+        <div class="sugestoes">
+          <h4>Combine com:</h4>
+          <div class="carrossel" id="carrossel"></div>
+        </div>
+        <p>Total: R$ <span id="total">0,00</span></p>
+        <button id="finalizar">Finalizar Compra</button>
+      </div>
+      <span id="carrinho-status" class="sr-only" aria-live="polite" aria-atomic="true"></span>
+    </div>
+  </header>
+
+  <div class="menu-overlay" id="menu-overlay"></div>
+
+  <a class="banner-principal" id="inicio" href="#catalogo" aria-label="Ver lançamentos">
+    <img src="img/Gemini_Generated_Image_skf1r2skf1r2skf1.jpg" alt="Banner Essencial: é ser você, com lançamentos de moda feminina">
+  </a>
+
+  <!-- CARROSSEL DE PRODUTOS -->
+  <section class="carousel-principal" aria-label="Destaques da loja">
+  </section>
+
+  <div class="catalogo-divisor" aria-hidden="true"></div>
+
+  <!-- PRODUTOS -->
+  <main class="produtos-container" id="catalogo"></main>
+
+  <div class="catalogo-divisor" aria-hidden="true"></div>
+
+  <section class="informacoes-loja">
+    <article id="depoimento-mariana"><span class="aspas">“</span><p class="depoimento-texto">Minha compra chegou linda, bem embalada e antes do prazo. Amei cada detalhe!</p><p class="cliente">Mariana S.</p></article>
+    <article id="quem-somos"><span class="aspas">“</span><p class="depoimento-texto">O atendimento foi muito atencioso e a peça veste exatamente como descrito.</p><p class="cliente">Juliana R.</p></article>
+    <article><span class="aspas">“</span><p class="depoimento-texto">A qualidade superou minhas expectativas. Com certeza vou comprar novamente.</p><p class="cliente">Camila A.</p></article>
+  </section>
+
+  <section class="formas-pagamento" id="informacoes" aria-label="Informações de compra e pagamento">
+    <div class="pagamentos-opcoes">
+      <div class="pagamento-opcao">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M3 9h17v14H3zM20 14h5l4 5v4h-9zM8 27a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm15 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/></svg>
+        <span>Envio para todo o Brasil</span>
+      </div>
+      <div class="pagamento-opcao">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 13h24L25 6H7l-3 7Zm3 0v14h18V13M12 27V17h8v10M3 27h26"/></svg>
+        <span>Compra com CPF ou CNPJ</span>
+      </div>
+      <div class="pagamento-opcao">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><rect x="3" y="6" width="26" height="20" rx="1"/><path d="M4 12h24M8 21h6"/></svg>
+        <span>Pix ou cartão</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- RODAPÉ -->
+  <footer>
+    <div class="footer-acoes">
+      <a class="footer-voltar" href="#inicio" aria-label="Voltar ao início" title="Voltar ao início"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 19V5m-6 6 6-6 6 6"/></svg></a>
+    </div>
+    <p class="frase-rodape">Porque dELE, por ELE e para ELE são todas as coisas.</p>
+    <p class="assinatura">Criado por Aline Neri</p>
+    <p class="direitos">© 2026 Aline Neri. Todos os direitos reservados.</p>
+  </footer>
+
+  <a class="whatsapp-flutuante" href="https://wa.me/5511965713890?text=Olá!%20Gostaria%20de%20saber%20mais%20sobre%20os%20produtos%20da%20Aline%20Neri." target="_blank" rel="noopener" aria-label="Falar no WhatsApp" title="Falar no WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.8 11.8 0 0 0 12.1 0C5.6 0 .3 5.3.3 11.8c0 2.1.6 4.1 1.6 5.9L.2 24l6.5-1.7a11.8 11.8 0 0 0 5.4 1.3h.1c6.5 0 11.8-5.3 11.8-11.8 0-3.1-1.2-6.1-3.5-8.3ZM12.1 21.5h-.1c-1.7 0-3.4-.5-4.8-1.4l-.3-.2-3.8 1 1-3.7-.2-.3a9.7 9.7 0 0 1-1.5-5.1C2.4 6.5 6.8 2.1 12.1 2.1c2.6 0 5 1 6.9 2.9a9.7 9.7 0 0 1 2.8 6.9c0 5.3-4.4 9.6-9.7 9.6Zm5.3-7.2c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.2-.2.3-.8 1-.9 1.2-.2.2-.3.2-.6.1-1.6-.8-2.6-1.4-3.6-3.2-.3-.5.3-.5.8-1.6.1-.2.1-.4 0-.6l-.9-2.1c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.2-1.2 2.9s1.2 3.4 1.4 3.6c.2.2 2.3 3.5 5.6 4.9 2.1.9 2.9 1 3.9.8.6-.1 1.8-.7 2-1.4.3-.7.3-1.3.2-1.4-.1-.1-.3-.2-.6-.3Z"/></svg>
+  </a>
+
+  <!-- MODAL DE DETALHES DO PRODUTO -->
+  <div id="modal-produto" class="modal">
+    <div class="modal-conteudo" role="dialog" aria-modal="true" aria-labelledby="modal-nome">
+      <button class="fechar" type="button" aria-label="Fechar detalhes do produto">&times;</button>
+      <img id="modal-img" src="" alt="Produto Ampliado">
+      <h2 id="modal-nome"></h2>
+      <p id="modal-preco"></p>
+
+      <div class="opcoes">
+        <div class="tamanhos">
+          <h4>Tamanhos disponíveis:</h4>
+          <div class="lista-tamanhos">
+            <span>P</span>
+            <span>M</span>
+            <span>G</span>
+            <span>GG</span>
+          </div>
+        </div>
+
+        <div class="cores">
+          <h4>Cores disponíveis:</h4>
+          <div class="lista-cores">
+            <span class="cor" style="background-color: pink;" data-cor="Rosa"></span>
+            <span class="cor" style="background-color: black;" data-cor="Preta"></span>
+            <span class="cor" style="background-color: white; border: 1px solid #ccc;" data-cor="Branca"></span>
+          </div>
+        </div>
+      </div>
+
+      <section id="modal-tabela-medidas" class="modal-tabela-medidas" aria-label="Tabela de medidas" hidden>
+        <h4>Medidas do corpo (cm)</h4>
+        <div class="tabela-medidas-scroll">
+          <table>
+            <thead>
+              <tr>
+                <th>Tamanho</th>
+                <th>Busto</th>
+                <th>Cintura</th>
+                <th>Quadril</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">P</th><td>84-88</td><td>64-68</td><td>90-94</td></tr>
+              <tr><th scope="row">M</th><td>89-94</td><td>69-74</td><td>95-100</td></tr>
+              <tr><th scope="row">G</th><td>95-100</td><td>75-80</td><td>101-106</td></tr>
+              <tr><th scope="row">GG</th><td>101-108</td><td>81-88</td><td>107-114</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <button id="modal-add-carrinho" class="btn-add-carrinho" style="display: none;">
+        Adicionar ao carrinho
+      </button>
+    </div>
+  </div>
+
+  <script src="data/produtos.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
