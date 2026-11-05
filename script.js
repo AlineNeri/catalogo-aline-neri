@@ -1,8 +1,8 @@
-// ==== CONFIGURAÇÃO GLOBAL ==== 
+// ==== CONFIGURAÇÃO ====
 const WHATSAPP_NUMBER = '5511965713890';
 const STORAGE_KEY = 'carrinhoItens';
 
-// ==== CARRINHO GLOBAL ==== 
+// ==== CARRINHO ====
 let carrinhoItens = [];
 
 const produtos = Array.isArray(window.LOJA_PRODUTOS) ? window.LOJA_PRODUTOS : [];
@@ -29,6 +29,7 @@ try {
         }))
     : [];
 } catch (error) {
+  console.warn('Não foi possível carregar o carrinho salvo; ele será iniciado vazio.', error);
   carrinhoItens = [];
 }
 
@@ -98,9 +99,9 @@ function initMenuHome() {
   const botoesInformacao = [...(informacoesCabecalho?.querySelectorAll('.atalho-cabecalho') || [])];
 
   function fecharDescricoes() {
-    botoesInformacao.forEach(botao => botao.setAttribute('aria-expanded', 'false'));
     botoesInformacao.forEach(botao => {
       const descricao = botao.querySelector('.tooltip-atalho');
+      botao.setAttribute('aria-expanded', 'false');
       descricao.hidden = true;
     });
   }
@@ -185,8 +186,8 @@ function initCatalogo() {
     return;
   }
 
-  catalogo.innerHTML = produtos.map((produto, index) => {
-    return `<article class="produto" data-nome="${produto.nome}" data-preco="${produto.preco.toFixed(2).replace('.', ',')}" data-tipo="${produto.tipo}" data-index="${index}">
+  catalogo.innerHTML = produtos.map(produto => {
+    return `<article class="produto" data-nome="${produto.nome}" data-preco="${produto.preco.toFixed(2).replace('.', ',')}" data-tipo="${produto.tipo}">
       <button class="produto-imagem" type="button" aria-label="Ver detalhes de ${produto.nome}">
         <img src="${produto.img}" alt="${produto.alt}">
       </button>
@@ -212,7 +213,7 @@ function atualizarCarrinho() {
   listaCarrinho.innerHTML = '';
 
   if (carrinhoItens.length === 0) {
-    listaCarrinho.innerHTML = '<p>Carrinho vazio</p>';
+    listaCarrinho.innerHTML = '<li class="carrinho-vazio">Carrinho vazio</li>';
     total.textContent = '0,00';
     carrossel.innerHTML = '';
     carrinhoContador.textContent = getQuantidadeItens();
@@ -228,12 +229,9 @@ function atualizarCarrinho() {
     const li = document.createElement('li');
 
     const imgProduto = document.createElement('img');
+    imgProduto.className = 'carrinho-item-imagem';
     imgProduto.src = item.img;
     imgProduto.alt = item.nome;
-    imgProduto.style.width = '50px';
-    imgProduto.style.height = '50px';
-    imgProduto.style.objectFit = 'cover';
-    imgProduto.style.marginRight = '10px';
     li.appendChild(imgProduto);
 
     const quantidade = item.quantidade || 1;
@@ -243,11 +241,10 @@ function atualizarCarrinho() {
     li.appendChild(texto);
 
     const removerItem = document.createElement('button');
+    removerItem.className = 'carrinho-item-remover';
     removerItem.type = 'button';
     removerItem.textContent = 'Remover';
     removerItem.setAttribute('aria-label', `Remover ${item.nome} do carrinho`);
-    removerItem.style.cursor = 'pointer';
-    removerItem.style.marginLeft = '10px';
     removerItem.addEventListener('click', () => {
       carrinhoItens.splice(index, 1);
       atualizarCarrinho();
@@ -263,18 +260,10 @@ function atualizarCarrinho() {
 
   carrossel.innerHTML = '';
   carrinhoItens.forEach(item => {
-    const imagens = [item.img];
-    imagens.forEach(src => {
-      const img = document.createElement('img');
-      img.src = src;
-      img.alt = item.nome;
-      img.style.width = '80px';
-      img.style.height = '80px';
-      img.style.objectFit = 'cover';
-      img.style.borderRadius = '5px';
-      img.style.marginRight = '5px';
-      carrossel.appendChild(img);
-    });
+    const img = document.createElement('img');
+    img.src = item.img;
+    img.alt = item.nome;
+    carrossel.appendChild(img);
   });
 
   carrinhoContador.textContent = getQuantidadeItens();
@@ -662,4 +651,3 @@ function initApp() {
 }
 
 initApp();
-
